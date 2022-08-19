@@ -1,0 +1,38 @@
+﻿MiddleWare:
+
+Middleware in asp.net core is simple software component means it like a c# Classes
+which are Assembled together  to handle your pipilined Request and Response
+
+
+---Middleware perform important task
+
+1)chooses wheather to pass httprequest to the next component in the pipeline or  not.
+by using next method within your middleware
+
+2)it can execute logic  before and after making request to the next middleware in pipeline 
+
+
+what are the different type of job middle do
+1)some middleware do authentication
+2)some middleware do Logging
+3)some Middlewarecomponent help to read javascript file and css and images
+
+there are so many other prefined middle ware which perform different operation
+
+//Note: Terminal Middle ware or Short Circuit Middleware.
+            // Run method is there in RunExtensions class but call by using app variable as it Extentend with IapplicationBuilder inferface 
+            //second object is Request Delegate which call HttpContext(handle request and response information )
+            //app.Run(async (context) =>//annoymonus method in run method to write some text
+            //{
+            //    await context.Response.WriteAsync("My First UserDefine Middleware");
+            //});
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("My second UserDefine Middleware");
+            //});
+
+            it will handle all request which user is going to make using url. 
+            it will not allow any other middleware to execute 
+
+WriteAsync namespace: using Microsoft.AspNetCore.Http;
