@@ -1,0 +1,25 @@
+﻿@model List<EmployeeModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@foreach (var item in Model)
+{
+    @item.EmpId
+    <br />
+    @item.EmpName
+    <br />
+    @item.EmpSalary
+    <br />
+
+}
+
+<form action="~/Home/FirstPartialView" method="post">
+    <input type="text" name="EmpName" value=""  class="form-control"/>
+    <input type="text" name="EmpSalary" value="" class="form-control" />
+    <input type="submit" name="name" value="Submit" />
+</form>
+
+@await Html.PartialAsync("_DepartmentPartialView");

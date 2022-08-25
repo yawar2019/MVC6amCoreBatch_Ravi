@@ -33,5 +33,63 @@ namespace MVC6amCoreBatch_Ravi.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public RedirectResult GetView()
+        {
+            return Redirect("http://www.google.com");
+        }
+
+        public RedirectToActionResult GetView2()
+        {
+            return RedirectToAction("Privacy");
+        }
+
+        public JsonResult GetJson()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "helloWorld";
+            emp.EmpSalary = 1000;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 1;
+            emp1.EmpName = "test";
+            emp1.EmpSalary = 2000;
+
+            List<EmployeeModel> listobj = new List<EmployeeModel>();
+            listobj.Add(emp);
+            listobj.Add(emp1);
+
+            return Json(listobj);
+        }
+
+
+        public ViewResult FirstPartialView()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "helloWorld";
+            emp.EmpSalary = 1000;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 1;
+            emp1.EmpName = "test";
+            emp1.EmpSalary = 2000;
+
+            List<EmployeeModel> listobj = new List<EmployeeModel>();
+            listobj.Add(emp);
+            listobj.Add(emp1);
+
+            return View(listobj);
+        }
+
+        [HttpPost]
+        public ViewResult FirstPartialView(EmployeeModel emp)
+        {
+            return View();
+        }
+
+
+
     }
 }

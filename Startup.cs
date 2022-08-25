@@ -43,26 +43,27 @@ namespace MVC6amCoreBatch_Ravi
             app.UseHttpsRedirection();
 
 
-            app.Use(async (context,next) =>//annoymonus method in run method to write some text
-            {
-                await context.Response.WriteAsync("My First Request UserDefine Middleware");
-                await next();
-                await context.Response.WriteAsync("My First Response UserDefine Middleware");
+            //app.Use(async (context, next) =>//annoymonus method in run method to write some text
+            //{
+            //    await context.Response.WriteAsync("My First Request UserDefine Middleware");
+            //    await next();
+            //    await context.Response.WriteAsync("My First Response UserDefine Middleware");
 
-            });
+            //});
 
 
-            app.Use(async (context, next) =>//annoymonus method in run method to write some text
-            {
-                await context.Response.WriteAsync("My Second UserDefine Middleware");
-                await next();
-                await context.Response.WriteAsync("My Second Response UserDefine Middleware");
-            });
+            //app.Use(async (context, next) =>//annoymonus method in run method to write some text
+            //{
+            //    await context.Response.WriteAsync("My Second UserDefine Middleware");
+            //    await next();
+            //    await context.Response.WriteAsync("My Second Response UserDefine Middleware");
+            //});
 
-            app.Use(async (context, next) =>//annoymonus method in run method to write some text
-            {
-                await context.Response.WriteAsync("My third UserDefine Middleware");
-            });
+            //app.Use(async (context, next) =>//annoymonus method in run method to write some text
+            //{
+            //    await context.Response.WriteAsync("My third UserDefine Middleware");
+            //    await next();
+            //});
 
 
             //Note: Terminal Middle ware 
