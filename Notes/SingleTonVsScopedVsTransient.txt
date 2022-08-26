@@ -1,0 +1,141 @@
+﻿AddSingleton()
+AddSingleton() creates a single instance of the service when it is first requested and reuses that same instance in all the places where that service is needed.
+AddScoped()
+In a scoped service, with every HTTP request, we get a new instance. However, within the same HTTP request, if the service is required in multiple places, like in the view and in the controller, then the same instance is provided for the entire scope of that HTTP request. But every new HTTP request will get a new instance of the service.
+AddTransient()
+With a transient service, a new instance is provided every time a service instance is requested whether it is in the scope of the same HTTP request or across different HTTP requests.
+
+--------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MVC6amNaturalBatch
+{
+    public interface IScopedService
+    {
+        Guid GetOperation();
+    }
+
+   public interface ITransientService
+    {
+        Guid GetOperation();
+    }
+
+   public interface ISingletonService
+    {
+        Guid GetOperation();
+    }
+
+    public class ScopeLiftime : ISingletonService, IScopedService, ITransientService
+    {
+        Guid id;
+        public ScopeLiftime()
+        {
+            id = Guid.NewGuid();
+        }
+        public Guid GetOperation()
+        {
+            return id;
+        }
+    }
+
+}
+----------------------------------------------
+
+
+namespace MVC6amNaturalBatch.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IScopedService _scopedService;
+        public ISingletonService _singletonService;
+        public ITransientService _transientService;
+
+        public IScopedService _scopedService1;
+        public ISingletonService _singletonService1;
+        public ITransientService _transientService1;
+        public HomeController(ISingletonService singletonService,
+                              IScopedService scopedService,
+                              ITransientService transientService,
+                              ISingletonService singletonService1,
+                              IScopedService scopedService1,
+                              ITransientService transientService1)
+            
+            
+        {
+            _scopedService = scopedService;
+            _singletonService = singletonService;
+            _transientService = transientService;
+
+            _scopedService1= scopedService1;
+            _singletonService1 = singletonService1;
+            _transientService1 = transientService1;
+
+
+
+        }
+
+
+
+        public IActionResult Index1()
+        {
+            ViewBag.Singleton = _singletonService.GetOperation().ToString();
+            ViewBag.Singleton1 = _singletonService1.GetOperation().ToString();
+
+            ViewBag.Scoped = _scopedService.GetOperation().ToString();
+            ViewBag.Scoped1 = _scopedService1.GetOperation().ToString();
+
+            ViewBag.Transient = _transientService.GetOperation().ToString();
+            ViewBag.Transient1 = _transientService1.GetOperation().ToString();
+
+            return View();
+        }
+
+
+    }
+
+
+    --------------------------------------------------------------
+    @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<table class="table-bordered table-light table-primary">
+    <tr>
+        <th>Service</th>
+        <th>First InstanceId</th>
+        <th>Second InstanceId</th>
+    </tr>
+    <tr>
+        <td>Transient</td>
+        <td>@ViewBag.Transient</td>
+        <td>@ViewBag.Transient1</td>
+    </tr>
+    <tr>
+        <td>Scoped</td>
+        <td>@ViewBag.Scoped</td>
+        <td>@ViewBag.Scoped1</td>
+    </tr>
+    <tr>
+        <td>SingleTon
+        </td>
+        <td>@ViewBag.Singleton</td>
+        <td>@ViewBag.Singleton1</td>
+    </tr>
+
+
+</table>
+--------------------------------------------------------
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+            services.AddTransient<ITransientService, ScopeLiftime>();
+            services.AddSingleton<ISingletonService, ScopeLiftime>();
+            services.AddScoped<IScopedService, ScopeLiftime>();
+        }
