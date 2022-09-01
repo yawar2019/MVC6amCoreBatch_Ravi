@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC6amCoreBatch_Ravi", "MVC6amCoreBatch_Ravi.csproj", "{FD0FB237-8CFA-4E8E-8615-271D0748CED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameWorkCoreApproach", "..\EntityFrameWorkCoreApproach\EntityFrameWorkCoreApproach.csproj", "{229A2C63-DEBF-4258-BC7B-718770029814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameWorkCoreApproach", "..\EntityFrameWorkCoreApproach\EntityFrameWorkCoreApproach.csproj", "{229A2C63-DEBF-4258-BC7B-718770029814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF2", "..\EF2\EF2.csproj", "{B43E8773-786F-4854-AD31-6A8F9CF55192}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{229A2C63-DEBF-4258-BC7B-718770029814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{229A2C63-DEBF-4258-BC7B-718770029814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{229A2C63-DEBF-4258-BC7B-718770029814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43E8773-786F-4854-AD31-6A8F9CF55192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43E8773-786F-4854-AD31-6A8F9CF55192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43E8773-786F-4854-AD31-6A8F9CF55192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43E8773-786F-4854-AD31-6A8F9CF55192}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
