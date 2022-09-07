@@ -17,14 +17,16 @@ namespace MVC6amCoreBatch_Ravi.Controllers
         {
             _logger = logger;
         }
-
-        public IActionResult Index()
+        [Route("Home/index/{id?}")]
+        public IActionResult Index(int? id)
         {
-            return View();
+            return Content(id.ToString());
         }
-
-        public IActionResult Privacy()
+       [Route("Movie/jungle/{id=1}")]
+        [Route("Movie/jungle2/{id:int}")]
+        public IActionResult Privacy(int? id)
         {
+            ViewBag.id = id;
             return View();
         }
 
@@ -88,8 +90,16 @@ namespace MVC6amCoreBatch_Ravi.Controllers
         {
             return View();
         }
+        [Route("home/taghelper")]
+public ActionResult tagHelperExample()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "test";
+            emp.EmpSalary = 210000;
 
-
+            return View(emp);
+        }
 
     }
 }

@@ -87,9 +87,28 @@ namespace MVC6amCoreBatch_Ravi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //starting of Conventional based Routing 
+                //endpoints.MapDefaultControllerRoute();
+
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //endpoints.MapControllerRoute(
+                //    name: "default2",
+                //    pattern: "pistahouse/burger/{id:min(3)}",
+                //    defaults:new {controller="Home",action= "Privacy" });
+
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //Ending Conventional Based Routing
+
+                //starting Attribute based Routing
+
+                endpoints.MapControllers();
             });
         }
     }
