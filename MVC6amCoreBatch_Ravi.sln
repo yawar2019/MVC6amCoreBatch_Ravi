@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameWorkCoreApproach
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF2", "..\EF2\EF2.csproj", "{B43E8773-786F-4854-AD31-6A8F9CF55192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample", "..\AuthenticationExample\AuthenticationExample.csproj", "{2CEDA53C-0E6F-4994-B82F-BCB38BE00B8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationExample", "..\AuthenticationExample\AuthenticationExample.csproj", "{2CEDA53C-0E6F-4994-B82F-BCB38BE00B8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
